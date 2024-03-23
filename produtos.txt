@@ -17,7 +17,7 @@
     ),
     Product(
       id: 'p3',
-      title: 'Yellow Scarf',
+      title: 'Yellow Scarff',
       description: 'Warm and cozy - exactly what you need for the winter.',
       price: 19.99,
       imageUrl:
