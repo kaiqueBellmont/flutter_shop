@@ -25,10 +25,32 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Minha Loja'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu, // Ícone do menu
+                color: Colors.white, // Cor do ícone
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Abrir o drawer ao pressionar o ícone de menu
+              },
+            );
+          },
+        ),
+        backgroundColor: ThemeData().colorScheme.secondary,
+        title: const Text(
+          'Minha Loja',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         actions: [
           PopupMenuButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
             itemBuilder: (_) => [
               const PopupMenuItem(
                 value: FilterOptions.favorite,
@@ -54,7 +76,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRoutes.cart);
               },
-              icon: const Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart, color: Colors.white),
             ),
             builder: (ctx, cart, child) => Badgee(
               value: cart.itemsCount.toString(),
@@ -63,7 +85,10 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
           ),
         ],
       ),
-      body: ProductGrid(_showFavoriteOnly),
+      body: Container(
+        color: Colors.white,
+        child: ProductGrid(_showFavoriteOnly),
+      ),
       drawer: const AppDrawer(),
     );
   }

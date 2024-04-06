@@ -22,9 +22,8 @@ class ProductGridItem extends StatelessWidget {
               onPressed: () {
                 product.toggleFavorite();
               },
-              icon: Icon(
-                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
-              color: Theme.of(context).colorScheme.secondary,
+              icon: Icon(product.isFavorite ? Icons.favorite : Icons.favorite_border),
+              color: Colors.cyanAccent,
             ),
           ),
           title: Text(
@@ -33,7 +32,7 @@ class ProductGridItem extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: const Icon(Icons.shopping_cart),
-            color: Theme.of(context).colorScheme.secondary,
+            color: Colors.cyanAccent,
             onPressed: () {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
